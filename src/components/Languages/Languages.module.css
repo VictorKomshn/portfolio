@@ -1,0 +1,117 @@
+.section {
+  width: 100%;
+  /* Используем очень мягкий серый фон, чтобы белые карточки выделялись.
+     Это создаст визуальное отделение от прошлой секции */
+  background-color: #f5f5f7; 
+  padding-bottom: 120px;
+  /* Добавим небольшой отступ сверху, если секция сразу после белой */
+  padding-top: 40px; 
+}
+
+.grid {
+  display: grid;
+  /* Ровно 4 колонки для компьютера */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0 10%;
+}
+
+/* --- КАРТОЧКА --- */
+.card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Высота карточки будет равна ее ширине (идеальный квадрат) */
+  aspect-ratio: 1 / 1; 
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ВЕРХ КАРТОЧКИ (Код и Уровень) --- */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.langCode {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d2d2d7; /* Светло-серый, чтобы не отвлекать внимание, но создавать текстуру */
+  letter-spacing: 0.05em;
+}
+
+/* Базовый стиль бейджа */
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Цвета бейджей в зависимости от уровня (задаются через свойство type в React) */
+.native {
+  background-color: #1d1d1f;
+  color: #ffffff;
+}
+
+.advanced {
+  background-color: #0066cc; /* Синий акцент Apple */
+  color: #ffffff;
+}
+
+.basic {
+  background-color: #f5f5f7;
+  color: #86868b;
+  border: 1px solid #e5e5ea;
+}
+
+/* --- НИЗ КАРТОЧКИ (Название и Описание) --- */
+.cardBody {
+  margin-top: auto; /* Прижимаем текст к низу карточки */
+}
+
+.langName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.langDesc {
+  font-size: 1rem;
+  color: #86868b;
+  line-height: 1.4;
+  min-height: 2.8em;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+/* Для планшетов делаем 2 ряда по 2 карточки */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Для телефонов карточки идут друг под другом, 
+   квадратные пропорции убираем, чтобы не занимали весь экран */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    aspect-ratio: auto;
+    min-height: 180px;
+  }
+}

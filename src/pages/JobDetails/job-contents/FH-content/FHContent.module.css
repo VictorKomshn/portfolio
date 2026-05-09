@@ -1,0 +1,259 @@
+section {
+    display: flex;
+    width: 100%;
+    background-color: #f5f5f7; 
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+/* src/pages/job-contents/FHContent.module.css */
+
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+  /* 60px сверху и снизу, 2vw слева и справа */
+  /* padding: 60px 2vw;  */
+}
+
+/* --- СЕКЦИЯ: ЗАДАЧА --- */
+.taskSection {
+  background-color: #1d1d1f; /* Фирменный темный цвет Apple */
+  border-radius: 24px;
+  padding: 60px;
+  margin-bottom: 80px; /* Отступ до следующего блока (например, featureBlock) */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.taskLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #86868b; /* Серый текст для надзаголовка */
+  margin-bottom: 20px;
+}
+
+.taskMain {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff; /* Белый заголовок на темном фоне */
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.taskSub {
+  font-size: 1.3rem;
+  color: #a1a1a6; /* Светло-серый для описания */
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 768px) {
+  .taskSection {
+    padding: 40px 30px;
+    margin-bottom: 5%;
+  }
+  
+  .taskMain {
+    font-size: 2rem;
+  }
+  
+  .taskSub {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* --- ОСНОВНОЙ БЛОК --- */
+.featureBlock {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 60px;
+}
+
+/* --- ЛЕВАЯ ЧАСТЬ (Текст) --- */
+.textContent {
+  flex: 1; /* Занимает половину пространства */
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #515154;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* Иконки программ */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.techBadge {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 23px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.techIcon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+
+/* --- ПРАВАЯ ЧАСТЬ (Изображение платы) --- */
+.visualContent {
+  flex: 1; /* Занимает вторую половину пространства */
+  display: flex;
+  justify-content: center;
+}
+
+/* Подложка под плату (создает эффект студийного фото) */
+.imageWrapper {
+  background-color: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  /*aspect-ratio: 1 / 1; /* Делает блок идеальным квадратом */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid rgba(0, 0, 0, 0.03); */
+  /*box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.02); /* Легкая внутренняя тень для объема */
+}
+
+.controllerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Плата впишется в квадрат без искажений */
+  border-radius: 23px;
+  /* filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15)); Раскомментируйте, если у платы удален фон (PNG) - даст шикарную тень */
+}
+
+/* Временная заглушка для большой платы */
+.boardPlaceholder {
+  color: #86868b;
+  font-weight: 500;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+/* На планшетах и телефонах ставим картинку под текст */
+@media (max-width: 900px) {
+  .featureBlock {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .imageWrapper {
+    max-width: 400px; /* Чтобы на мобилке картинка не была гигантской */
+  }
+}
+
+/* --- СЕКЦИЯ: ВЫСТАВКА (СТАНДАРТНАЯ) --- */
+.standardSection {
+
+}
+
+.splitLayout {
+  display: flex;
+  align-items: top;
+  gap: 60px;
+}
+
+/* --- Левая колонка (Текст и Лого) --- */
+.textColumn {
+  flex: 1;
+}
+
+.eventLogo {
+  /*height: 72px; /* Аккуратный размер для логотипа */
+  width: 100%;
+  /* max-width: 250px; */
+  object-fit: contain;
+  margin-bottom: 24px;
+  border-radius: 23px;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.sectionDescription {
+  font-size: 1.5rem;
+  color: #515154;
+  line-height: 1.6;
+}
+
+/* --- Правая колонка (Фотография) --- */
+.photoColumn {
+  flex: 1;
+}
+
+.standardPhotoWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Классический формат для фото */
+  border-radius: 23px;
+  overflow: hidden;
+  background-color: #f5f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.eventPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #86868b;
+  font-weight: 500;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 900px) {
+  .splitLayout {
+    flex-direction: column; /* На мобилках выстраиваем в колонку */
+    gap: 40px;
+  }
+  
+  .textColumn {
+    order: 1; /* Текст и лого идут первыми */
+  }
+  
+  .photoColumn {
+    order: 2; /* Фото идет под текстом */
+    width: 100%;
+  }
+}

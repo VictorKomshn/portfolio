@@ -1,0 +1,284 @@
+.header {
+  padding-top: 80px; /* Отступ сверху, чтобы заголовок не прилипал к прошлой секции */
+  margin-bottom: 40px;
+  text-align: left;
+  width: 100%;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.04em;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #86868b;
+  font-weight: 400;
+  max-width: 600px;
+  margin-left: 0;
+}
+
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Элементы встанут в колонку: Сначала Header, потом StickyWrapper */
+  align-items: center;
+  background-color: #f5f5f7;
+  /* padding: 10vh 0;  */
+  /* Важно: border-box гарантирует, что padding не увеличит общую высоту секции */
+  box-sizing: border-box;
+  overflow: visible;
+} 
+
+
+.stickyWrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  gap: 100px;
+  justify-content: center;
+}
+
+/* НОВЫЙ КОНТЕЙНЕР НАВИГАЦИИ */
+.navContainer {
+  position: relative;
+  height: 100vh;
+  width: 300px; /* Фиксированная ширина, чтобы текст не прыгал */
+  flex-shrink: 0;
+}
+
+.nav {
+  position: absolute;
+  top: 50%; /* Точка отсчета - ровно центр экрана */
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  /* Плавный сдвиг всего списка вверх/вниз */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.2, 1);
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dotWrapper {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  /* Фиксируем высоту на 32px, чтобы математика в React была идеальной */
+  height: 32px; 
+  padding: 0;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.2, 1);
+  transform: translateX(0);
+}
+
+.dotWrapper.active {
+  transform: translateX(50px); 
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #1d1d1f; 
+  flex-shrink: 0;
+}
+
+.dotLabel {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #86868b;
+  margin-left: 20px;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.2, 1);
+  text-align: left;
+  white-space: nowrap; /* Чтобы текст не переносился на вторую строку */
+}
+
+.dotWrapper.active .dotLabel {
+  color: #1d1d1f;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* --- МАГИЯ ИЗОГНУТОЙ ЛИНИИ --- */
+
+.lineWrapper {
+  width: 72px;
+  /* Отрицательные отступы нужны, чтобы линия "пряталась" ровно под центр черных буллетов */
+  margin-top: -20px;
+  margin-bottom: -20px;
+  position: relative;
+  z-index: 1;
+  /* Анимация увеличения дистанции между буллетами */
+  transition: height 0.6s cubic-bezier(0.25, 1, 0.2, 1);
+  overflow: visible;
+}
+
+/* Базовое расстояние между неактивными элементами */
+.shortLine {
+  height: 60px;
+}
+
+/* Увеличенное расстояние сверху и снизу от активного элемента */
+.longLine {
+  height: 120px; 
+}
+
+.svgLine {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Ключевая строка: заставляем браузер плавно морфировать саму SVG-кривую! */
+.svgLine path {
+  transition: d 0.6s cubic-bezier(0.25, 1, 0.2, 1);
+}
+/* content */
+
+.contentDisplay {
+  flex: 1;
+  text-align: left;
+}
+
+.infoCard {
+  max-width: 500px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.cardLogo {
+  display: block;
+  /* Ограничиваем размеры, чтобы логотип был аккуратным */
+  max-width: 180px; 
+  max-height: 45px;
+  /* contain гарантирует, что логотип не обрежется и не сплющится */
+  object-fit: contain; 
+  /* Прижимаем логотип к левому краю */
+  object-position: center center;
+  margin-bottom: 20px; /* Отступ до периода/должности */
+}
+
+.period {
+  font-size: 1.1rem;
+  color: #86868b;
+  font-weight: 500;
+}
+
+.role {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 10px 0 20px 0;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #515154;
+  margin-bottom: 30px;
+
+  white-space: pre-line;
+}
+
+.scrollTriggers {
+  /* Пустой контейнер для триггеров скролла */
+}
+
+.contentBox {
+  height: 100vh;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- МОБИЛЬНАЯ АДАПТАЦИЯ (Экраны меньше 768px) --- */
+
+.mobileCompany {
+  display: none; /* Скрываем на десктопе, там есть точки */
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 5px 0 0 0;
+}
+
+/* Скрываем все карточки кроме активной по умолчанию (для десктопа) */
+.infoCard {
+  display: none; 
+}
+.infoCard.activeCard {
+  display: block; 
+}
+
+@media (max-width: 768px) {
+  .section {
+    min-height: auto; /* Убираем 100vh */
+    padding: 30px 20px; 
+    height: auto;
+  }
+
+  .stickyWrapper {
+    height: auto;
+    flex-direction: column; /* Столбец вместо строки */
+    gap: 40px;
+    padding: 0;
+  }
+
+  /* 1. Полностью прячем хитрую левую навигацию с линиями */
+  .navContainer {
+    display: none; 
+  }
+
+  /* 2. Контент растягиваем на всю ширину */
+  .contentDisplay {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Большое расстояние между работами */
+  }
+
+  /* 3. Заставляем ВСЕ карточки отображаться, игнорируя activeIndex */
+  .infoCard {
+    display: block !important; 
+    max-width: 100%;
+    animation: none; /* Убираем анимацию появления при скролле */
+    padding: 20px;
+    background-color: #ffffff; /* Добавляем белый фон как карточке */
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Легкая тень */
+  }
+
+  /* 4. Показываем название компании внутри карточки */
+  .mobileCompany {
+    display: block;
+  }
+
+  /* 5. Уменьшаем шрифты для мобилок */
+  .role {
+    font-size: 2rem;
+    margin: 5px 0 15px 0;
+  }
+  
+  .desc {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+}

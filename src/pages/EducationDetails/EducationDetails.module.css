@@ -1,0 +1,181 @@
+/* src/pages/EducationDetails.module.css */
+
+.pageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding-top: 80px; 
+}
+
+/* --- HERO СЕКЦИЯ ОБРАЗОВАНИЯ --- */
+.heroSection {
+  background-color: #ffffff;
+  padding: 100px 7%;
+  border-radius: unset;
+  align-items: unset;
+  justify-content: flex-start;
+}
+
+.heroContainer {
+  width: 100%;
+  max-width: 2000px; 
+  margin: 0 auto;
+}
+
+.heroInformation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.heroDescription {
+  max-width: 800px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo {
+  height: 80px;
+  object-fit: contain;
+}
+
+.period {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #86868b;
+  letter-spacing: 0.05em;
+}
+
+.degree {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 10px;
+}
+
+.university {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #515154;
+  margin-bottom: 40px;
+}
+
+/* --- СКИЛЛЫ / ТЕХНОЛОГИИ --- */
+.skillsWrapper {
+  background-color: #f5f5f7;
+  padding: 25px;
+  border-radius: 23px;
+  width: fit-content;
+  margin-right: 0;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start; 
+  text-align: left;
+  max-width: 280px;
+}
+
+.skillCard {
+  background-color: #ffffff;
+  border-radius: 18px; 
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.skillInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.skillLogo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.logoPlaceholder {
+  width: 32px;
+  height: 32px;
+  background-color: #f5f5f7;
+  border-radius: 8px;
+}
+
+.skillName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.comingSoon {
+  text-align: center;
+  padding: 100px 20px;
+  font-size: 1.2rem;
+  color: #86868b;
+}
+
+.notFound {
+  text-align: center;
+  padding-top: 150px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 30px 20px; 
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .period {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .degree {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .university {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  .heroInformation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: unset;
+    gap: unset;
+  }
+
+  .skillsList {
+    width: 100%;
+    max-width: unset;
+  }
+}

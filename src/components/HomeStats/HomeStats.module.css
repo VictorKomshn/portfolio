@@ -1,0 +1,60 @@
+/* Стили для секции со статистикой */
+.statsSection {
+    background-color: #f5f5f7; 
+    justify-content: flex-start; /* Выравнивание всей группы по левому краю */
+}
+
+.statsGrid {
+  display: flex;
+  flex-direction: row; /* В строку */
+  gap: 120px; /* Большой отступ между блоками данных */
+  text-align: left;
+}
+
+.statItem {
+  display: flex;
+  align-items: center; /* Цифра и текст на одной линии по вертикали */
+  gap: 25px; /* Расстояние между цифрой и текстом */
+}
+
+.statNumber {
+  font-size: 11rem; /* Очень большая цифра */
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  
+  /* Градиент на цифре */
+  background: linear-gradient(180deg, #1d1d1f 30%, #86868b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statText {
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: #86868b; /* Серый цвет текста */
+  font-weight: 500;
+  text-transform: lowercase; /* Маленькие буквы, как в запросе */
+}
+
+.statUnit {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1d1d1f; /* Слово "years" чуть крупнее и темнее */
+}
+
+
+/* Адаптивность: если экран узкий, блоки встанут друг под друга */
+@media (max-width: 900px) {
+  .statsGrid {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .statNumber{
+    font-size: 8rem;
+  }
+
+  .statsSection{
+    padding: 30px 20px; /* Добавим отступы для узких экранов */
+  }
+}

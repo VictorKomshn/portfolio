@@ -1,0 +1,171 @@
+.section {
+  width: 100%;
+  background-color: #f5f5f7;
+  padding: 60px;
+}
+
+.logo{
+    height: 48px; /* Фиксированная высота */
+    /* width: auto; /* Ширина подстроится автоматически */
+    /*max-width: 140px; /* НО не даст растянуться шире этого значения */
+    object-fit: contain; /* Запрещает картинке искажаться или вылезать за рамки */
+    margin-bottom: 25px;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    /* display: block; */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  /* МАГИЯ ЗДЕСЬ: строго 2 одинаковые колонки, игнорируя ширину контента */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap: 30px;
+}
+
+/* --- ГЛАВНАЯ КАРТОЧКА --- */
+.card {
+  background-color: #fbfbfd;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 100%; /* Заставляем карточки быть одинаковой высоты, даже если текста в одной меньше */
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* --- ШАПКА КАРТОЧКИ --- */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.period {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #86868b;
+  letter-spacing: 0.02em;
+}
+
+.gpaBadge {
+  background-color: #1d1d1f;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* --- ОСНОВНАЯ ИНФОРМАЦИЯ --- */
+.cardMain {
+  margin-bottom: 40px;
+}
+
+.degree {
+  font-size: 2.8rem; /* Уменьшили шрифт с 3.5rem, так как карточка теперь занимает половину экрана */
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.university {
+  font-size: 1.4rem;
+  color: #515154;
+  font-weight: 500;
+}
+
+/* --- БЛОК ДИПЛОМНОЙ РАБОТЫ --- */
+.thesisBlock {
+  /* margin-top: auto прижимает этот блок к самому низу, 
+     поэтому линия и кнопка всегда будут на одном уровне в обеих карточках */
+  margin-top: auto; 
+  padding-top: 25px;
+  border-top: 1px solid #d2d2d7;
+  display: flex;
+  /* Делаем колонку, так как в половинчатой карточке мало места для горизонтальной кнопки */
+  flex-direction: column; 
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.thesisLabel {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #86868b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.thesisTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1d1d1f;
+  line-height: 1.4;
+}
+
+/* --- КНОПКА "ПОДРОБНЕЕ" --- */
+.learnMoreBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0066cc;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.learnMoreBtn:hover {
+  opacity: 0.8;
+}
+
+.chevron {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.2, 1);
+}
+
+.learnMoreBtn:hover .chevron {
+  transform: translateX(4px);
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+/* На планшетах и телефонах (меньше 900px) карточки становятся друг под другом */
+@media (max-width: 900px) {
+
+  .section {
+    padding: 30px 15px;
+  }
+
+  .card{
+    padding: 20px;
+  }
+
+  .cardMain {
+    margin-bottom: 20px;
+  }
+
+  .container {
+    grid-template-columns: 1fr; /* Одна колонка вместо двух */
+  }
+  
+  .degree {
+    font-size: 2.5rem;
+  }
+}

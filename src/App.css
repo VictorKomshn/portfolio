@@ -1,0 +1,159 @@
+/* Базовые настройки и шрифты Apple */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #ffffff; 
+  color: #1d1d1f; 
+  -webkit-font-smoothing: antialiased;
+}
+
+.apple-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero {
+  /* max-width: 800px; */
+  min-height: 100vh; /* Секция на весь экран */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+/* Второстепенный текст (как название продукта сверху) */
+.greeting {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #86868b;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Главный заголовок с отрицательным интервалом (фишка Apple) */
+.profession {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+  color: #1d1d1f;
+}
+
+/* Градиентный текст для акцента */
+.gradient-text {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Базовый класс для градиентного текста */
+.accent-gradient {
+  /* Задаем сам градиент (здесь красивый переход от синего к фиолетовому, отлично смотрится на темном) */
+  background: linear-gradient(135deg, #00AFFF 0%, #5856D6 100%);
+  
+  /* Указываем браузеру, что фон должен обрезать по контуру текста */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Делаем сам текст прозрачным, чтобы сквозь него было видно фон-градиент */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Немного увеличиваем насыщенность для темных фонов */
+  filter: drop-shadow(0px 2px 10px rgba(88, 86, 214, 0.2));
+  
+  /* Важно: display inline-block помогает избежать багов с обрезкой градиента на некоторых шрифтах */
+  display: inline-block; 
+}
+
+.red-gradient {
+  background: linear-gradient(150deg, #d51317 30%, #fff1f1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Описание фирменным серым цветом */
+.bio {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #86868b;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  letter-spacing: -0.01em;
+}
+
+/* Кнопки в стиле Apple */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #1d1d1f;
+  color: #ffffff;
+  padding: 0.8rem 1.8rem;
+  border-radius: 980px; /* Идеально круглые края */
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  color: #0066cc; /* Фирменный синий цвет ссылок */
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-secondary:hover {
+  text-decoration: underline;
+}
+
+.btn-secondary span {
+  font-size: 1rem;
+}
+
+
+ /* Stats section */
+ section {
+  border-radius: 28px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%; /* Отступы по бокам */
+}
+
+ .small-section {
+  width: 100%;
+  min-height: 50vh; /* Секция на весь экран */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%; /* Отступы по бокам */
+}
