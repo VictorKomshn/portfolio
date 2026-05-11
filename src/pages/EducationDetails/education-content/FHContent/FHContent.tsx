@@ -5,7 +5,7 @@ import shipImg from './assets/ship.png';
 import apisLogo from './assets/apis-logo.png';
 import catamranImg from './assets/catamaran.png';
 import myAirovPhoto from './assets/airov-photo.jpg';
-import airovLogo from './assets/airov-logo.svg';
+// import airovLogo from './assets/airov-logo.svg';
 
 export default function FHContent() {
   return (    
