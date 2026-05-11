@@ -38,7 +38,7 @@ export const educationData: EducationDetails[] = [
   },
   {
     id: 1,
-    eduId: 'fh-kaernten-bsc',
+    eduId: 'fh-kaernten-msc',
     university: 'FH Kärnten',
     degree: 'M.Sc. Systems Design',
     period: '2024 — 2026',

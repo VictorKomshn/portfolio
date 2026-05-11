@@ -4,6 +4,8 @@ import styles from './CollectionChelContent.module.css';
 import aspnetIcon from './assets/aspnet.png';
 import entityFrameworkIcon from './assets/entityframeworkcore-original.svg';
 
+import cleanArchitectureIcon from './assets/clean_architecture.png';
+
 export default function CollectionChelContent() {
   return (
     <div className={styles.container}>
@@ -24,10 +26,9 @@ export default function CollectionChelContent() {
         <div className={styles.textContent}>
           <h3 className={styles.title}>Backend Development</h3>
           <p className={styles.description}>
-            While developing the backend of the E-commerce website, I focused on creating a robust and scalable architecture using ASP.NET.
-            The general structure of the backend was designed based on a <strong>Layered Monolith</strong> architecture, which allowed for better separation of concerns and easier maintenance.
-            I implemented RESTful APIs to handle various functionalities such as product management, user authentication, and order processing.
-            Additionally, I integrated Entity Framework for efficient database management and ensured seamless communication between the frontend and backend components.
+            The general structure of the backend was designed based on a <strong>Layered Monolith</strong> and <strong>Clean Architecture</strong> , which allowed for better separation of concerns and easier maintenance.
+            I implemented <strong>RESTful APIs</strong> to handle various functionalities such as product management, user authentication, and order processing.
+            Additionally, I integrated <strong>Entity Framework</strong> for efficient database management and ensured seamless communication between the frontend and backend components.
           </p>
           
           {/* Блок с программами */}
@@ -49,9 +50,9 @@ export default function CollectionChelContent() {
 
         {/* ПРАВАЯ ЧАСТЬ: Изображение контроллера */}
         <div className={styles.visualContent}>
-          {/* <div className={styles.imageWrapper}>
-            <img src={controllerImg} alt="Microcontroller board" className={styles.controllerImg} />
-          </div> */}
+          <div className={styles.imageWrapper}>
+            <img src={cleanArchitectureIcon} alt="Microcontroller board" className={styles.descriptionImg} />
+          </div>
         </div>
 
       </section>

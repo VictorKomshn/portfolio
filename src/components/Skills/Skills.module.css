@@ -309,9 +309,21 @@
 }
 
 /* --- ДЛЯ СОВСЕМ УЗКИХ ЭКРАНОВ (например, iPhone SE) --- */
-@media (max-width: 380px) {
+@media (max-width: 430px) {
 
-  
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
+    /* grid-template-columns: 2fr; Одна колонка, карточки в ряд */
+    gap: 15px;
+  }
+
+  .skillCard {
+    max-width: 150px;;
+  }
+
+  .skillName {
+    font-size: 0.9rem; /* Еще чуть уменьшаем шрифт */
+  }
 
   .grid {
     gap: 10px;

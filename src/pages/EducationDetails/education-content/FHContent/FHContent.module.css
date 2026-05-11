@@ -1,0 +1,357 @@
+section {
+    display: flex;
+    width: 100%;
+    background-color: #f5f5f7; 
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+/* src/pages/job-contents/FHContent.module.css */
+
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+  /* 60px сверху и снизу, 2vw слева и справа */
+  /* padding: 60px 2vw;  */
+}
+
+/* --- СЕКЦИЯ: ЗАДАЧА --- */
+.taskSection {
+  background-color: #1d1d1f; /* Фирменный темный цвет Apple */
+  border-radius: 24px;
+  padding: 60px;
+  margin-bottom: 80px; /* Отступ до следующего блока (например, featureBlock) */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  justify-content: space-between; /* Расталкиваем текст и картинку по краям */
+  align-items: center; /* Выравниваем картинку по центру относительно текста */
+  gap: 40px;
+}
+
+.taskInfo{
+    flex: 1;
+}
+
+.taskImg{
+  max-width: 40%; /* КЛЮЧЕВОЙ МОМЕНТ: картинка никогда не займет больше 40% ширины карточки */
+  height: auto; /* Сохраняет пропорции при уменьшении ширины */
+  object-fit: contain;
+}
+
+
+.taskLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #86868b; /* Серый текст для надзаголовка */
+  margin-bottom: 20px;
+}
+
+.taskMain {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff; /* Белый заголовок на темном фоне */
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.taskSub {
+  font-size: 1.3rem;
+  color: #a1a1a6; /* Светло-серый для описания */
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+/* --- INDUSTRY PARTNERSHIP --- */
+.borderlessSection {
+  display: flex;
+  max-width: 100%;
+  margin: 0px auto; /* Центрируем и делаем отступ снизу */
+  text-align: left;
+  padding: 90px 40px;
+  border-radius: 24px;
+  gap:40px;
+
+  justify-content: space-between; /* Расталкиваем текст и картинку по краям */
+  align-items: center;
+}
+
+.borderlessSection .sectionTitle {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.borderlessSection .sectionDescription {
+  font-size: 1.6rem;
+  color: #000000;
+  line-height: 1.6;
+  max-width: 53%;
+}
+
+.borderlessSection .sectionImg{
+    max-width: 40%; /* КЛЮЧЕВОЙ МОМЕНТ: картинка никогда не займет больше 40% ширины карточки */
+    height: auto; /* Сохраняет пропорции при уменьшении ширины */
+    object-fit: contain;
+    background-color: rgba(82,100,111,0.33);
+}
+
+
+
+@media (max-width: 1200px) {
+
+    .taskImg{
+        display: none;
+    }    
+}
+
+@media (max-width: 1000px){
+    .borderlessSection{
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        padding:30px 20px 70px;
+    }
+
+    .borderlessSection .sectionDescription{
+        max-width: 100%;
+        font-size: 1.1rem;
+
+    }
+
+    .borderlessSection .sectionImg{
+        max-width: 100%;
+        max-height: 20vh;
+    }
+}
+
+.eventLogo{
+  width: 50px;
+  height: auto;
+}
+
+/* --- СТАНДАРТНАЯ СЕКЦИЯ (Ограничитель ширины) --- */
+.standardSection {
+  margin: 0px auto 100px; /* Отступы сверху/снизу и центрирование по горизонтали */
+  padding: 0 40px;
+}
+
+/* --- РАЗДЕЛЕНИЕ НА 2 КОЛОНКИ --- */
+.splitLayout {
+  display: flex; /* ВАЖНО: ставит колонки в один ряд */
+  align-items: center; /* Центрирует текст и фото относительно друг друга по вертикали */
+  gap: 60px; /* Расстояние между текстом и фотографией */
+}
+
+.splitLayout .sectionDescription{
+  font-size: 1.2rem;
+  color: #1d1d1f;
+  line-height: 1.6;
+}
+
+.textColumn {
+  flex: 1; /* Занимает 50% доступного места */
+}
+
+.photoColumn {
+  flex: 1; /* Занимает вторые 50% */
+  /* ДОПОЛНИТЕЛЬНАЯ ЗАЩИТА: строго запрещаем картинке быть больше половины контейнера на ПК */
+  max-width: 50%; 
+}
+
+
+/* --- ССЫЛКИ И РЕСУРСЫ --- */
+.resourceLinks {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.primaryLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0071e3; /* Цвет ссылок Apple */
+  text-decoration: none;
+}
+
+.primaryLink:hover {
+  text-decoration: underline;
+}
+
+.linkIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.docButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.secondaryLink {
+  background-color: #f5f5f7;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1d1d1f;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.secondaryLink:hover {
+  background-color: #e8e8ed;
+}
+
+/* --- ПРАВАЯ КОЛОНКА (Фотография) --- */
+.photoColumn {
+  flex: 1; /* Заставляет колонку с фото занимать ровно половину ширины (наравне с текстом) */
+}
+
+/* Обертка для фотографии */
+.standardPhotoWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Классические пропорции для фотографии (можно поменять на 16/9) */
+  border-radius: 20px; /* Мягкие скругления в стиле iOS */
+  overflow: hidden; /* ВАЖНО: обрезает углы самой картинки под скругления контейнера */
+  background-color: #f5f5f7; /* Серый фон на время загрузки или для плейсхолдера */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Едва заметная рамка */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); /* Дорогая, мягкая тень */
+}
+
+/* Сама фотография (когда вы раскомментируете тег <img>) */
+.eventPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заполняет весь контейнер, аккуратно обрезая края без сплющивания */
+  display: block;
+  transition: transform 0.6s ease; /* Плавная анимация для эффекта при наведении */
+}
+
+/* --- ВСТРОЕННЫЙ ПРОСМОТР (IFRAME) --- */
+.embedContainer {
+  margin-top: 60px;
+  background-color: #fbfbfd;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.embedTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1d1d1f;
+}
+
+.iframeWrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000;
+  aspect-ratio: 16 / 9;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.iframeWrapper iframe {
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .splitLayout {
+    flex-direction: column; /* Ставит картинку под текст на узких экранах */
+    gap: 40px;
+  }
+  
+  .textColumn {
+    order: 1; /* Текст будет сверху */
+  }
+  
+  .photoColumn {
+    order: 2; /* Фото снизу */
+    max-width: 100%; /* На телефоне разрешаем картинке занять всю ширину экрана */
+  }
+}
+
+@media (max-width: 768px) {
+
+.borderlessSection{
+    align-items: flex-start;
+}
+
+.splitLayout .sectionDescription{
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.borderlessSection .sectionImg{
+    align-self: center;
+}
+
+  .taskSection {
+    padding: 40px 30px;
+    margin-bottom: 5%;
+  }
+  
+  .taskMain {
+    font-size: 2rem;
+  }
+  
+  .taskSub {
+    font-size: 1.1rem;
+  }
+
+    .docButtons {
+    flex-direction: column;
+  }
+  
+  .embedContainer {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+
+.splitLayout .sectionDescription{
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+  .embedContainer{
+    display: none;
+  }
+  
+  .taskSection {
+      padding: 30px 20px;
+      margin-bottom: 40px;
+  }
+
+  .taskMain {
+      font-size: 1.5rem;
+  }
+
+  .taskSub {
+      font-size: 1rem;
+  }
+
+  .borderlessSection {
+      padding: 20px 15px;
+      gap: 20px;
+  }
+
+  .borderlessSection .sectionDescription {
+      font-size: 1rem;
+  }
+
+  .embedContainer {
+      padding: 15px;
+  }
+}

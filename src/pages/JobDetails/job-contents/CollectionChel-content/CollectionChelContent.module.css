@@ -104,9 +104,57 @@ section {
   object-fit: contain;
 }
 
+.visualContent {
+  flex: 1; /* Занимает вторую половину пространства */
+  display: flex;
+  justify-content: center;
+}
+
+/* Подложка под плату (создает эффект студийного фото) */
+.imageWrapper {
+  background-color: #f5f5f7;
+  border-radius: 24px;
+  width: 100%;
+  /*aspect-ratio: 1 / 1; /* Делает блок идеальным квадратом */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid rgba(0, 0, 0, 0.03); */
+  /*box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.02); /* Легкая внутренняя тень для объема */
+}
+
+.descriptionImg {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  object-fit: contain; /* Плата впишется в квадрат без искажений */
+  border-radius: 23px;
+  /* filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15)); Раскомментируйте, если у платы удален фон (PNG) - даст шикарную тень */
+}
+
 
 /* --- АДАПТИВНОСТЬ --- */
 @media (max-width: 768px) {
+
+  .featureBlock {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 30px;
+  }
+  
+  .imageWrapper {
+    max-width: 400px; /* Чтобы на мобилке картинка не была гигантской */
+  }
+
+  .techBadge {
+    font-size: 0.9rem;
+  }
+
+  .techIcon{
+    width: 40px;
+    height: 40px;
+  }
+
   .taskSection {
     padding: 40px 30px;
     margin-bottom: 5%;

@@ -8,8 +8,8 @@ import FHContent from './education-content/FHContent/FHContent';
 import ItmoContent from './education-content/ITMOContent/ITMOContent';
 
 const contentMap: Record<string, React.ReactNode> = {
-  'fh-kaernten': <FHContent />,
-  'itmo': <ItmoContent />,
+  'fh-kaernten-msc': <FHContent />,
+  'itmo-bsc': <ItmoContent />,
 };
 
 export default function EducationDetails() {
