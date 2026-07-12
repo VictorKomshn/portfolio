@@ -77,3 +77,140 @@
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
 }
+
+/* Dropdown menu styles */
+
+.resumeWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Главная кнопка в шапке */
+.resumeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1d1d1f; /* Темная кнопка в стиле Apple */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.resumeButton:hover {
+  background-color: #333336;
+}
+
+.resumeButton:active {
+  transform: scale(0.97);
+}
+
+/* Анимация стрелочки */
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Само меню (в стиле macOS / Glassmorphism) */
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 12px); /* Отступ от кнопки вниз */
+  right: 0; /* Выравнивание по правому краю кнопки */
+  width: 240px; /* Ширина меню */
+  background: rgba(255, 255, 255, 0.85); /* Белый полупрозрачный фон */
+  backdrop-filter: blur(20px); /* Эффект размытого стекла */
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08); /* Очень тонкая и светлая рамка */
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12); /* Дорогая, мягкая тень */
+  z-index: 100;
+  
+  /* Легкая анимация появления */
+  animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Элементы внутри меню */
+.dropdownItem {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1d1d1f;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Легкое затемнение при наведении */
+}
+
+.itemTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.itemSubtitle {
+  font-size: 0.85rem;
+  color: #86868b;
+  margin-top: 4px;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.08);
+  margin: 6px 12px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+  
+  .resumeButton {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 500px) {
+  /* 1. ГЛОБАЛЬНО (Для всех страниц): Прячем только GitHub, чтобы освободить место */
+  .githubLink {
+    display: none;
+  }
+
+  /* 2. ТОЛЬКО ДЛЯ ВНУТРЕННИХ СТРАНИЦ (где есть кнопка Back): Прячем имя и остальные иконки */
+  .innerPage .nameBlock,
+  .innerPage .iconsGroup {
+    display: none;
+  }
+
+  /* Делаем шапку чуть компактнее на мобилках */
+  .header {
+    padding: 12px 15px;
+  }
+
+  .resumeButton {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+}

@@ -25,7 +25,7 @@ export const educationData: EducationDetails[] = [
     id: 0,
     eduId: 'itmo-bsc',
     university: 'ITMO University',
-    degree: 'B.Sc. Computer Science',
+    degree: 'B.Sc. Cybersecurity',
     period: '2019 — 2023',
     logo: itmoLogo,
     skillIds: ['cpp', 'algorithms', 'cryptography'],

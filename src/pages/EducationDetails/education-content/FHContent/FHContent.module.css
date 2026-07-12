@@ -124,7 +124,7 @@ section {
 
     .borderlessSection .sectionImg{
         max-width: 100%;
-        max-height: 20vh;
+        max-height: 60vh;
     }
 }
 
@@ -265,6 +265,110 @@ section {
   border: none;
 }
 
+.architectureContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 0 40px;
+  margin-bottom: 100px;
+}
+
+/* Модификатор для смены колонок местами (эффект зигзага) */
+.reverseLayout {
+  flex-direction: row-reverse;
+}
+
+/* Бейджик для номера этапа */
+.stageBadge {
+  display: inline-block;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+/* Заголовок для отдельного этапа в колонке */
+.stageTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Временный плейсхолдер для будущих схем алгоритмов */
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #86868b;
+  font-weight: 500;
+  background-color: #f5f5f7;
+  font-size: 1.2rem;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  
+  /* Гарантирует, что схема влезет целиком и не обрежется, как это было бы с cover */
+  object-fit: contain; 
+  
+  /* Добавляем "воздух", чтобы схема не прилипала к краям серого контейнера */
+  padding: 20px; 
+  
+  /* МАГИЯ: Убирает белый фон картинки! Темные линии схемы останутся, а белый цвет растворится в сером фоне контейнера */
+  mix-blend-mode: multiply; 
+  
+  /* Плавная анимация, если оставите эффект увеличения при наведении на контейнер */
+  transition: transform 0.6s ease; 
+}
+
+/* --- BENTO GRID (Для блока Engineering Excellence) --- */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 0 40px;
+  margin-bottom: 100px;
+}
+
+.bentoCard {
+  background-color: #fbfbfd;
+  border: 1px solid rgba(0,0,0,0.03);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.bentoTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+}
+
+.bentoDesc {
+  font-size: 1.1rem;
+  color: #515154;
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+  .architectureContainer, .bentoGrid {
+    padding: 0 20px;
+  }
+}
+
+
 @media (max-width: 900px) {
   .splitLayout {
     flex-direction: column; /* Ставит картинку под текст на узких экранах */
@@ -279,22 +383,30 @@ section {
     order: 2; /* Фото снизу */
     max-width: 100%; /* На телефоне разрешаем картинке занять всю ширину экрана */
   }
+
+  .reverseLayout {
+    flex-direction: column;
+  }
+  
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
 
-.borderlessSection{
-    align-items: flex-start;
-}
+  .borderlessSection{
+      align-items: flex-start;
+  }
 
-.splitLayout .sectionDescription{
-  font-size: 1rem;
-  line-height: 1.4;
-}
+  .splitLayout .sectionDescription{
+    font-size: 1rem;
+    line-height: 1.4;
+  }
 
-.borderlessSection .sectionImg{
-    align-self: center;
-}
+  .borderlessSection .sectionImg{
+      align-self: center;
+  }
 
   .taskSection {
     padding: 40px 30px;
@@ -309,12 +421,20 @@ section {
     font-size: 1.1rem;
   }
 
-    .docButtons {
+  .docButtons {
     flex-direction: column;
   }
   
   .embedContainer {
     padding: 20px;
+  }
+
+  .architectureContainer {
+    gap: 60px;
+  }
+  
+  .stageTitle {
+    font-size: 1.5rem;
   }
 }
 
@@ -353,5 +473,17 @@ section {
 
   .embedContainer {
       padding: 15px;
+  }
+
+    .architectureContainer, .bentoGrid {
+    padding: 0 15px;
+  }
+  
+  .bentoCard {
+    padding: 25px;
+  }
+  
+  .stageBadge {
+    font-size: 0.75rem;
   }
 }

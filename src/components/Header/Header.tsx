@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom'; // Добавили хуки роутера
 import styles from './Header.module.css';
 
@@ -7,6 +7,9 @@ export default function Header() {
   const location = useLocation(); // Узнаем текущий путь
 
   const isHome = location.pathname === '/';
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isHome) {
@@ -29,8 +32,18 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome]);
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <header className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
+    <header className={`${styles.header} ${isVisible ? styles.visible : ''} ${!isHome ? styles.innerPage : ''}`}>
       <div className={styles.container}>
         
         {!isHome && (
@@ -52,7 +65,7 @@ export default function Header() {
             </svg>
           </a>
           
-          <a href="https://github.com/VictorKomshn" target="_blank" rel="noopener noreferrer" className={styles.iconLink} aria-label="GitHub">
+          <a href="https://github.com/VictorKomshn" target="_blank" rel="noopener noreferrer" className={`${styles.iconLink} ${styles.githubLink}`} aria-label="GitHub">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg>
@@ -65,9 +78,61 @@ export default function Header() {
           </a>
         </div>
 
-        {/* ПРАВАЯ ЧАСТЬ: Имя (как вы и просили) */}
         <div className={styles.nameBlock}>
           <span className={styles.name}>Viktor Komyshan</span>
+        </div>
+
+        <div className={styles.resumeWrapper} ref={dropdownRef}>
+          <button 
+            className={styles.resumeButton} 
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            aria-expanded={isDropdownOpen}
+          >
+            Resume
+            {/* Иконка стрелочки вниз */}
+            <svg 
+              className={`${styles.chevron} ${isDropdownOpen ? styles.chevronOpen : ''}`} 
+              width="14" 
+              height="14" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          {/* Выпадающее меню */}
+          {isDropdownOpen && (
+            <div className={styles.dropdownMenu}>
+              <a 
+                href="https://drive.google.com/file/d/160OpOL0QOFzRrSFjlMDXoz5DkLfmiwWQ/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.dropdownItem}
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                <div className={styles.itemTitle}>Software Engineering</div>
+                <div className={styles.itemSubtitle}>C# / .NET</div>
+              </a>
+              
+              <div className={styles.divider}></div>
+
+              <a 
+                href="https://drive.google.com/file/d/10vvkDmzAKjfUCciCQkuUQ70XNUzMk4Rw/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.dropdownItem}
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                <div className={styles.itemTitle}>Embedded Systems</div>
+                <div className={styles.itemSubtitle}>C++ / ROS / Robotics</div>
+              </a>
+            </div>
+          )}
         </div>
 
       </div>
