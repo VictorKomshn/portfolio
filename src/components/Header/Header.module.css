@@ -45,9 +45,15 @@
   width: 22px;
   height: 22px;
   transition: color 0.3s ease, transform 0.3s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.iconLink svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; /* Запрещает Safari сплющивать иконку, если мало места */
 }
 
 .iconLink:hover {
